@@ -20,7 +20,7 @@ echo '</tomcat-users>' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 
 #setting valve in comments
 
-sed -i 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"/<!-- <Valve className="org.apache.catalina.valves.RemoteAddrValve"/' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
+sed -i 's/<Valve /<!-- <Valve /' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
 sed -i 's\:1" />\:1" /> -->\g' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
