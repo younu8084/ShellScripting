@@ -24,3 +24,8 @@ sudo service jenkins start
 sudo chkconfig --add jenkins
 
 #jenkins started
+
+echo "This is the initial administrator password"
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
