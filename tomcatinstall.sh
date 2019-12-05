@@ -22,7 +22,7 @@ echo '</tomcat-users>' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 
 sed -i 's/<Valve className="org.apache.catalina.valves.RemoteAddrValve"/<!-- <Valve className="org.apache.catalina.valves.RemoteAddrValve"/' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
-sed -i 's#allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />#allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> -->#' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
+sed -i 's\:1" />\:1" /> -->\g' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
 #running tomcat
 apache-tomcat-8.5.49/bin/./startup.sh
