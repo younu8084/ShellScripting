@@ -15,7 +15,7 @@ wget http://apachemirror.wuchna.com/tomcat/tomcat-8/v8.5.49/bin/apache-tomcat-8.
 tar -xvzf apache-tomcat-8.5.49.tar.gz
 
 
-read -p "do you want to delete the zipped file [enter y/n]:" var1
+read -p "do you want to delete the zip file [enter y/n]:" var1
 
 y=$(echo $var1 | tr -s '[:upper:]' '[:lower:]')
 
@@ -33,6 +33,8 @@ if [[ "$var2" = "y" ]] ; then
 read -p "Enter the new port:" port
 #changing the port for tomcat
 sed -i "s/port=\"8080\"/port=\"$port\"/" apache-tomcat-8.5.49/conf/server.xml
+else
+port=8080
 fi
 #creating users in tomcat-users.xml
 
@@ -85,3 +87,5 @@ sed -i 's\:1" />\:1" /> -->\g' apache-tomcat-8.5.49/webapps/manager/META-INF/con
 
 #running tomcat
 apache-tomcat-8.5.49/bin/./startup.sh
+
+echo "tomcat is running on port : $port"
