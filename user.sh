@@ -19,7 +19,7 @@ read -p "do you want to delete the zipped file [enter y/n]:" var1
 
 y=$(echo $var1 | tr -s '[:upper:]' '[:lower:]')
 
-if [["$var1" = "y"]] ; then
+if [[ "$var1" = "y" ]] ; then
 
 #remove tomcat downloaded tar file
 rm -rf apache-tomcat-8.5.49.tar.gz
@@ -29,7 +29,7 @@ read -p "Do you want to change port for tomcat [enter y/n]:" var2
 
 y=$(echo $var2 | tr -s '[:upper:]' '[:lower:]')
 
-if [["$var2" = "y"] ; then
+if [[ "$var2" = "y" ] ; then
 read -p "Enter the new port:" port
 #changing the port for tomcat
 sed -i "s/port="8080"/port="$port"/" apache-tomcat-8.5.49/conf/server.xml
