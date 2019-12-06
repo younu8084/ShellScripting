@@ -1,6 +1,6 @@
 #remove previously installed tomcat
 var=$(sudo find / -name "version.sh")
-if [[ var = "" ]];then
+if [[ -z "$var" ]];then
 
 
 
