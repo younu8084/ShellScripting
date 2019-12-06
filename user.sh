@@ -53,9 +53,9 @@ read -p "Enter password for manager-GUI :" pwd_gui
 
 
 echo '<role rolename="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
-echo "<user username=""$user_gui"" password=""$pwd_gui"" roles="manager-gui" />" >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo "<user username=\"$user_gui\" password=\"$pwd_gui\" roles=\"manager-gui\" />" >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 echo '<role rolename="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
-echo "<user username=""$user_script"" password=""$pwd_script"" roles="manager-script" />" >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo "<user username=\"$user_script\" password="\$pwd_script\" roles="\manager-script\" />" >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 echo '</tomcat-users>' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 
 
