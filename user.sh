@@ -27,9 +27,9 @@ fi
 
 read -p "Do you want to change port for tomcat [enter y/n]:" var2
 
-y=$(echo $var2 | tr -s '[:upper:]' '[:lower:]')
+y1=$(echo $var2 | tr -s '[:upper:]' '[:lower:]')
 
-if [[ "$var2" = "y" ]] ; then
+if [[ "$var2" = "y1" ]] ; then
 read -p "Enter the new port:" port
 #changing the port for tomcat
 sed -i "s/port="8080"/port="$port"/" apache-tomcat-8.5.49/conf/server.xml
@@ -38,11 +38,42 @@ fi
 
 sed -i 's\</tomcat-users>\<!-- -->\g' apache-tomcat-8.5.49/conf/tomcat-users.xml
 
+read -p "Do you want to use default username and password for manager_script and manager_gui [enter y/n]:" var3
+
+n=$(echo $var3 | tr -s '[:upper:]' '[:lower:]')
+
+if [[ "$var3" = "n" ]] ; then
+read -p "Enter username for manager-script :" user_script
+read -p "Enter password for manager-script :" pwd_script
+read -p "Enter username for manager-GUI :" user_gui
+read -p "Enter password for manager-GUI :" pwd_gui
+
+
+
+
+
+echo '<role rolename="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo "<user username="$user_gui" password="$pwd_gui" roles="manager-gui" />" >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '<role rolename="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '<user username="$user_script" password="$pwd_script" roles="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '</tomcat-users>' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+
+
+else
+
+
+
+echo "The default username/password for manager-script are {script/script}"
+
+echo "The default username/password for manager-script are {admin/admin}"
+
 echo '<role rolename="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 echo '<user username="admin" password="admin" roles="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 echo '<role rolename="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 echo '<user username="script" password="script" roles="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 echo '</tomcat-users>' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+
+fi
 
 #setting valve in comments
 
