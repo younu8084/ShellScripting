@@ -32,7 +32,7 @@ y=$(echo $var2 | tr -s '[:upper:]' '[:lower:]')
 if [[ "$var2" = "y" ]] ; then
 read -p "Enter the new port:" port
 #changing the port for tomcat
-sed -i "s/port="8080"/port="$port"/" apache-tomcat-8.5.49/conf/server.xml
+sed -i "s/port=\"8080\"/port=\"$port\"/" apache-tomcat-8.5.49/conf/server.xml
 fi
 #creating users in tomcat-users.xml
 
