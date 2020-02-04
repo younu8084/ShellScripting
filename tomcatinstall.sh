@@ -17,9 +17,9 @@ sed -i 's/port="8080"/port="8090"/' apache-tomcat-8.5.49/conf/server.xml
 sed -i 's\</tomcat-users>\<!-- -->\g' apache-tomcat-8.5.49/conf/tomcat-users.xml
 
 echo '<role rolename="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
-echo '<user username="tomcat" password="admin" roles="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '<user username="admin" password="admin" roles="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 echo '<role rolename="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
-echo '<user username="tomcat" password="admin" roles="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '<user username="admin" password="admin" roles="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 echo '</tomcat-users>' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 
 #setting valve in comments
